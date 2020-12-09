@@ -9,6 +9,16 @@
             "mainClass": "com.example.gencon.GenConApplication",
             "projectName": "gen-con",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-genconApplication<gen-con>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.gencon.auth.genconApplication",
+            "projectName": "gen-con",
+            "args": ""
         }
     ]
 }

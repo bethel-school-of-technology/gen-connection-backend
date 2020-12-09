@@ -27,8 +27,11 @@ git branch -r
 # if you don't see remote branch you know is there, try refreshing
 git fetch
 
+<!-- Comment out -->
 
 
 
-
+CRUD Operations
+You typically have a page/.js file for each type of object you want to be able to retrieve and persist into the db.
+And in each one of those pages, you will have at least 4 methods   app.post, app.get, app.put, app.delete()
 
