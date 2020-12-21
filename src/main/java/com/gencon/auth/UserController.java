@@ -13,6 +13,7 @@ public class UserController {
   
     @PostMapping("/register")
     public void register(@RequestBody User newUser) {
+      //System.out.println("Sean was here trying to register a new user");
       userService.Save(newUser);
     }
 }
