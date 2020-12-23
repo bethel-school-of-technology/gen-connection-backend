@@ -42,7 +42,6 @@ public class postController {
 
 	    @PostMapping("")
 	    public ResponseEntity<post> postStamp(@RequestBody post stamp) {
-
 	        // saving to DB using instance of the repo interface
 	        post createdStamp = dao.save(stamp);
 
@@ -51,11 +50,18 @@ public class postController {
 		}
 		
 		@PutMapping("/{id}")
-		/*public ResponseEntity<post> updatePost(@PathVariable String id, @RequestBody post postDetails) {
+		public ResponseEntity<post> updateStamp(@PathVariable(value="id") Integer id, @RequestBody post postDto) {
 			
+		    post dbObj = dao.findById(id).orElse(null);
+			dbObj.setAuthorID(postDto.getAuthorID());
+			dbObj.setBody(postDto.getBody());	
+			dbObj.setGeneration(postDto.getGeneration());
+			dbObj.setTitle(postDto.getTitle());
+			dao.save(dbObj);
 			
-			return post;
-		}*/
+	        return ResponseEntity.ok(dbObj);		
+			
+		}
 
 	    @DeleteMapping("/{id}")
 	    public ResponseEntity<post> deleteStamp(@PathVariable(value="id") Integer id) {
