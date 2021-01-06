@@ -17,7 +17,9 @@ import java.util.List;
 public class UserController {
     
     @Autowired
-	    UserRepository dao;
+		UserRepository dao;
+		@Autowired
+		private MySQLUserDetailsService userservice; 
 
 	    @GetMapping("/getAll")
 	    public List<User> getRelay() {
@@ -36,13 +38,15 @@ public class UserController {
 	    }
 
 	    @PostMapping("")
-	    public ResponseEntity<User> postRelay(@RequestBody User relay) {
+	    public void postRelay(@RequestBody User relay) {
 
 	        // saving to DB using instance of the repo interface
-	        User createdRelay = dao.save(relay);
+	       /* User createdRelay = dao.save(relay);
 
 	        // RespEntity crafts response to include correct status codes.
-	        return ResponseEntity.ok(createdRelay);
+			return ResponseEntity.ok(createdRelay);*/
+			System.out.println(relay.getFirstName());
+			userservice.Save(relay);
 		}
 		
 		@PutMapping("/{id}")
