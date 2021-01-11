@@ -2,7 +2,11 @@ package com.gencon.auth;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.Gson;
+
 import org.springframework.security.core.*;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -49,6 +53,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
           .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
           .sign(HMAC512(SECRET.getBytes()));
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        Cookie mytoken=new Cookie("jwt", token);
+        res.addCookie(mytoken);
+        res.getWriter().write(new Gson().toJson(TOKEN_PREFIX + token));
+      
       }
     
       @Override
