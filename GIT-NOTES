@@ -1,0 +1,37 @@
+git clone https://github.com/username/repo-name.git
+
+# see what branch your on
+git branch -l
+
+# create a new branch and move to it
+git checkout -b your-new-branch-name
+
+# see what has changed
+git status
+
+# add all changed items to 'staging' branch
+git add .
+
+# commit 'staged' changes
+git commit -m "enter your message here"
+
+# push your local (whatever branch you're on) up to github
+git push
+
+#if your local branch isn't already up on github you may see a message like below
+git push --set-upstream origin branch-name
+
+# list all branches on remote
+git branch -r
+
+# if you don't see remote branch you know is there, try refreshing
+git fetch
+
+<!-- Comment out -->
+/* comment out */
+
+
+CRUD Operations
+You typically have a page/.js file for each type of object you want to be able to retrieve and persist into the db.
+And in each one of those pages, you will have at least 4 methods   app.post, app.get, app.put, app.delete()
+
