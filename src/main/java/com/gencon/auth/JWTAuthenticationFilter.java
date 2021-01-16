@@ -56,6 +56,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Cookie mytoken=new Cookie("jwt", token);
         res.addCookie(mytoken);
         res.getWriter().write(new Gson().toJson(TOKEN_PREFIX + token));
+        res.setStatus(200);
+        
       
       }
     
