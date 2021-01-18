@@ -25,7 +25,7 @@ public class postController {
 
         @GetMapping("/getAll")
 	    public List<post> getStamp() {
-			System.out.println("Sean was here getting all posts");
+			System.out.println("Huss was here getting all posts");
 			List<post> foundStamp = dao.findAll();			
 			return foundStamp;			
 	    }
